@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Assignment1.Day02;
 namespace Assignment1.Day03
 {
@@ -7,12 +7,12 @@ namespace Assignment1.Day03
         public int EmpID { get; set; }
         public string EmpName { get; set; }
         public string EmpAddress { get; set; }
-        public string EmpDOB { get; set; }
+        public DateTime EmpDOB { get; set; }
     }
-
+    
     class EmployeeData
     {
-        private const int size = 5;
+        private const int size = 2;
         private static Employee[] empp = new Employee[size];
 
         static void Main(string[] args)
@@ -29,9 +29,11 @@ namespace Assignment1.Day03
             var id = MyConsole.GetNumber("Enter the Employee ID");
             var name = MyConsole.GetString("Enter the Employee Name");
             var address = MyConsole.GetString("Enter the Employee Address");
-            // var dob = MyConsole.GetDate("Enter the Employee DOB");
-            Console.WriteLine("Enter the DOB as dd/mm/yyyy only");
-            var dob = Console.ReadLine();
+            var dob = MyConsole.GetDate("Enter the Employee DOB");
+
+            //Console.WriteLine("Enter the DOB as dd/mm/yyyy only");
+            //var dob = Console.ReadLine();
+
             for (int i = 0; i < size ; i++)
             {
                 if(empp[i] == null)
@@ -41,8 +43,7 @@ namespace Assignment1.Day03
                         EmpID = id, 
                         EmpName = name, 
                         EmpAddress = address, 
-                        EmpDOB = dob
-                        
+                        EmpDOB = dob                       
                     };
                     break;
                 } 
